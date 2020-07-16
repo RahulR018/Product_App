@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="display-4 text-center">ENTER NEW PRODUCT DATA</h1>
+    <form (ngSubmit)='AddProduct()'>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Id</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_id" class="form-control" [(ngModel)]='productItem.productId'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Name</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_name" class="form-control" [(ngModel)]='productItem.productName'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Code</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_code" class="form-control" [(ngModel)]='productItem.productCode'>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Release Date</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_rd" class="form-control" [(ngModel)]='productItem.releaseDate'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Description</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_des" class="form-control" [(ngModel)]='productItem.description'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Price</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_pr" class="form-control" [(ngModel)]='productItem.price'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Rating</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_rt" class="form-control" [(ngModel)]='productItem.starRating'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="input_id" class="col-sm-6 col-form-label">Product Image Address</label>
+            <div class="col-sm-6">
+                <input type="text" name="p_img" class="form-control" [(ngModel)]='productItem.imageUrl'>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit"class="btn btn-success">SUBMIT</button>
+        </div>
+    </form>
+
+</div>

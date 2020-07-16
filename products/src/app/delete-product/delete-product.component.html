@@ -1,0 +1,14 @@
+<div class="container col-md-4 text-center">
+    <table id="table" class="table table-dark table-hover">
+        <thead>
+            <th>Product Name</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor='let product of deldatas'>
+                <td>{{product.productName}}</td>
+                <td><button class="btn btn-primary" >DELETE</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
