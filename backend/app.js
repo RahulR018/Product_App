@@ -38,6 +38,18 @@ app.post('/insert',(req,res)=>{
     console.log(product);
 })
 
+
+app.delete('/remove/:id',(req,res)=>{
+    let id=req.params.id;
+    productdata.deleteOne({_id: id}).then((err, product)=>{
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(product)
+            res.status(200).send(product)
+        }
+    })
+})
 app.listen(3000, () => {
     console.log('Working');
 })

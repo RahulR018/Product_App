@@ -14,6 +14,6 @@ export class ProductService {
     .subscribe(data=>{console.log(data)});
   };
   delProduct(item){
-    return this.http.post('http://localhost:3000/remove',{'product':item})
+    return this.http.delete('http://localhost:3000/remove/'+item).subscribe((data)=>{console.log(data)})
   }
 };
