@@ -1,1 +1,66 @@
-<p>update-product works!</p>
+<div class="container border border-dark">
+    <div class="container row border border-primary my-3">
+        <div class="container col-md-5 border border-secondary my-3 text-center">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>products</th>
+                        <th>Product Code</th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor='let p of productData'>
+                        <td>{{p.productName}}</td>
+                        <td>{{p.productCode}}</td>
+                        <button class="btn btn-primary btn-sm" (click)='edit(p)'>EDIT</button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container col-md-4 border border-secondary">
+            <form (ngSubmit)='up(id)'>
+                <div class="form-group row my-2">
+                    <label for="" class="col-form-label col-sm-6">Product Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="p_name" [(ngModel)]='prdata.productName'>
+                    </div>
+                </div>
+                <div class="form-group row my-2">
+                    <label for="" class="col-form-label col-sm-6">Code</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="p_code" [(ngModel)]='prdata.productCode'>
+                    </div>
+                </div>
+                <div class="form-group row my-2">
+                    <label for="" class="col-form-label col-sm-6">Available</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="p_res" [(ngModel)]='prdata.releaseDate'>
+                    </div>
+                </div>
+                <div class="form-group row my-2">
+                    <label for="" class="col-form-label col-sm-6">Price</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="p_pr" [(ngModel)]='prdata.price'>
+                    </div>
+                </div>
+                <div class="form-group row my-2">
+                    <label for="" class="col-form-label col-sm-6">Rating</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="p_rt" [(ngModel)]='prdata.starRating'>
+                    </div>
+                </div>
+                <div class="form-group row my-2">
+                    <label for="" class="col-form-label col-sm-6">Image Url</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="p_img" [(ngModel)]='prdata.imageUrl'>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button id="button" type="submit" class="btn btn-success btn-sm" disabled>UPDATE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

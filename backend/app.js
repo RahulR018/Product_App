@@ -1,6 +1,7 @@
 const express = require('../products/node_modules/express');
 const bodyParser = require('../products/node_modules/body-parser');
 const productdata = require('./src/models/productdata');
+const signupdata= require('./src/models/signupdata');
 const cors = require('../products/node_modules/cors');
 
 var app = new express();
@@ -19,6 +20,14 @@ app.get('/products', (req, res) => {
         res.send(data);
     })
 });
+
+app.post('/signup/up', (req,res)=>{
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Alloe-Methods: GET,POST,PATCH,PUT,DELETE,OPTION');
+    signupdata.find().then(function(data){
+        console.log(data);
+    })
+})
 app.post('/insert',(req,res)=>{
     res.header('Access-Control-Allow-Origin',"*")
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTION');
@@ -46,6 +55,20 @@ app.delete('/remove/:id',(req,res)=>{
             console.log(err)
         } else {
             console.log(product)
+            res.status(200).send(product)
+        }
+    })
+})
+
+
+app.put('/update', (req,res)=>{
+    res.header('Access-Control-Allow-Origin',"*")
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTION');
+    console.log(req.body);
+    productdata.update({_id:req.body.id},{$set: req.body.product},(err, product)=>{
+        if(err) {
+            console.log(err)
+        } else {
             res.status(200).send(product)
         }
     })

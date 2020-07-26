@@ -1,1 +1,65 @@
-<p>signup works!</p>
+<div class="container border border-dark  my-5 shadow">
+    <form name='form' (ngSubmit)='signup()'> 
+        <div class="form-group row mt-3">
+            <div class="col-md-2 ">
+                <label for="firstName" class="col-form-label">First Name:</label>
+            </div>
+            <div class="col-sm-4 ">
+                <input type="text" class="form-control" 
+                name="FirstName" [(ngModel)]='signupdata.FirstName' 
+                #FirstName='ngModel' pattern="^[a-zA-Z]+$" required>
+
+                <div *ngIf="FirstName.invalid && (FirstName.dirty|| FirstName.touched)">
+                    <small *ngIf='FirstName.errors.required' style="color: red;">
+                        Name is required
+                    </small>
+                    <small *ngIf='FirstName.errors.pattern' 
+                    style="color: red;">Type only strings</small>
+                </div>
+            </div>
+            <div class=" col-md-2">
+                <label for="firstName" class="col-form-label">Last Name:</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="LName" [(ngModel)]='signupdata.LastName'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class=" col-md-2">
+                <label for="firstName" class="col-form-label">Gender:</label>
+            </div>
+            <div class="col-sm-4 ">
+                <select name="gender" id="gender" class="form-control" [(ngModel)]='signupdata.Gender'>
+                    <option value='Male' selected >Male</option>
+                    <option value='Female'>Female</option>
+                    <option value='Others'>Prefer Not to Say</option>
+                </select>
+            </div>
+            <div class=" col-md-2">
+                <label for="firstName" class="col-form-label">Email:</label>
+            </div>
+            <div class="col-sm-4 ">
+                <input type="text" class="form-control" name="Email" [(ngModel)]='signupdata.Email'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class=" col-md-2">
+                <label for="password" class="col-form-label">Password:</label>
+            </div>
+            <div class="col-sm-4 ">
+                <input type="password" class="form-control" name="Pass" [(ngModel)]='signupdata.password'>
+            </div>
+            <div class="col-md-2">
+                <label for="confirmPass" class="col-form-label">Re-enter Password:</label>
+            </div>
+            <div class="col-sm-4 ">
+                <input type="password" class="form-control" name="confirmPass" [(ngModel)]='confirmPass'>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="container text-center">
+                <button type="submit" class="btn border border-info">SIGNUP</button>
+            </div>
+        </div>
+    </form>
+</div>
